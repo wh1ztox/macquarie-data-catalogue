@@ -2,8 +2,10 @@ from threading import Lock
 from catalogue.schemas import Dataset
 from catalogue.repositories.seed import seed_datasets
 
+
 class MemoryRepository:
     """Process-local storage. Return copies so callers cannot mutate saved records."""
+
     def __init__(self):
         self._records = {d.id: d for d in seed_datasets()}
         self._lock = Lock()

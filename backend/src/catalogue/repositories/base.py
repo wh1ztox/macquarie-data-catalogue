@@ -1,6 +1,7 @@
 from typing import Protocol
 from catalogue.schemas import Dataset
 
+
 class DatasetRepository(Protocol):
     def list(self) -> list[Dataset]: ...
     def add(self, dataset: Dataset) -> None: ...
